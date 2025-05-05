@@ -1,9 +1,9 @@
 package initializer
 
 import (
-	"snack/post/entity" // entity 패키지 import
-	"snack/post/repository"
-	"snack/post/service"
+	"first/post/entity" // entity 패키지 import
+	"first/post/repository"
+	"first/post/service"
 
 	"github.com/google/wire"
 	"github.com/joho/godotenv"
@@ -11,9 +11,12 @@ import (
 	"gorm.io/gorm"
 
 	// alias
-	githubActionEntity "snack/github_action/entity"
-	githubActionRepo "snack/github_action/repository"
-	githubActionService "snack/github_action/service"
+	githubActionEntity "first/github_action/entity"
+	githubActionRepo "first/github_action/repository"
+	githubActionService "first/github_action/service"
+
+	githubActionTriggerRepo "first/github_action_trigger/repository"
+	githubActionTriggerService "first/github_action_trigger/service"
 
 	"fmt"
 	"os"
@@ -47,6 +50,20 @@ func NewGitHubActionService(gitHubActionRepo githubActionRepo.GitHubActionReposi
 // NewGitHubActionRepository 생성자 함수
 func NewGitHubActionRepository(db *gorm.DB) githubActionRepo.GitHubActionRepository {
 	return githubActionRepo.NewGitHubActionRepositoryImpl(db)
+}
+
+var GitHubActionTriggerSet = wire.NewSet(
+	NewGitHubActionTriggerService,
+	NewGitHubActionTriggerRepository,
+)
+
+// GitHubActionTrigger
+func NewGitHubActionTriggerService(githubActionTriggerRepo githubActionTriggerRepo.GitHubActionTriggerRepository) githubActionTriggerService.GitHubActionTriggerService {
+	return githubActionTriggerService.NewGitHubActionTriggerServiceImpl(githubActionTriggerRepo)
+}
+
+func NewGitHubActionTriggerRepository() githubActionTriggerRepo.GitHubActionTriggerRepository {
+	return githubActionTriggerRepo.NewGitHubActionTriggerRepositoryImpl()
 }
 
 // DB를 초기화하고, wire를 통해 의존성을 주입하는 함수

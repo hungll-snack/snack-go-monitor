@@ -1,8 +1,8 @@
 package initializer
 
 import (
-	"snack/post/controller"
-	"snack/post/routes"
+	"first/post/controller"
+	"first/post/routes"
 
 	"github.com/gofiber/fiber/v2"
 )

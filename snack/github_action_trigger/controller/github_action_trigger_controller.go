@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"first/github_action_trigger/controller/request_form"
-	"first/github_action_trigger/service"
+	"snack/github_action_trigger/controller/request_form"
+	"snack/github_action_trigger/service"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 )

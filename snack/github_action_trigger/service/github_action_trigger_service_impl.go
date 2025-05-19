@@ -1,6 +1,6 @@
 package service
 
-import "first/github_action_trigger/repository"
+import "snack/github_action_trigger/repository"
 
 type GitHubActionTriggerServiceImpl struct {
 	Repo repository.GitHubActionTriggerRepository

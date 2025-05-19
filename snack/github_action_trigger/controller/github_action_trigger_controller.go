@@ -46,4 +46,3 @@ func (c *GitHubActionTriggerController) TriggerWorkflow(ctx *fiber.Ctx) error {
 	fmt.Println("🎉 controller - 워크플로우 트리거 성공")
 	return ctx.JSON(fiber.Map{"success": true})
 }
-

@@ -1,5 +1,5 @@
 # 사용하는 Golang 버전에 맞추도록 합니다 (학원 컴에서 구성한 것의 경우 1.23 버전이였던 것으로 기억함)
-FROM golang:1.20-alpine AS builder
+FROM golang:1.23-alpine AS builder
 
 WORKDIR /app
 

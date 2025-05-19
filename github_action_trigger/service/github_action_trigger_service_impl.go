@@ -1,6 +1,10 @@
 package service
 
-import "snack/github_action_trigger/repository"
+import (
+	"first/github_action_trigger/repository"
+	"strings"
+)
+
 
 type GitHubActionTriggerServiceImpl struct {
 	Repo repository.GitHubActionTriggerRepository
@@ -13,5 +17,12 @@ func NewGitHubActionTriggerServiceImpl(repo repository.GitHubActionTriggerReposi
 
 // GetTriggers 구현
 func (s *GitHubActionTriggerServiceImpl) RunWorkflow(repoUrl string, token string, workflowFileName string) error {
-	return s.Repo.TriggerWorkflow(repoUrl, token, workflowFileName)
+	var ref string
+
+	if strings.Contains(repoUrl, "snack-nuxt-frontend") {
+		ref = "demo"
+	} else {
+		ref = "main"
+	}
+	return s.Repo.TriggerWorkflow(repoUrl, token, workflowFileName, ref)
 }

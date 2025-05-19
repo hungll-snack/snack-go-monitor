@@ -15,7 +15,7 @@ func NewGitHubActionTriggerRepositoryImpl() GitHubActionTriggerRepository {
 	return &GitHubActionTriggerRepositoryImpl{}
 }
 
-func (r *GitHubActionTriggerRepositoryImpl) TriggerWorkflow(repoUrl, token, workflowFileName string) error {
+func (r *GitHubActionTriggerRepositoryImpl) TriggerWorkflow(repoUrl, token, workflowFileName, ref string) error {
 	owner, repo, err := parseRepoURL(repoUrl)
 	if err != nil {
 		return fmt.Errorf("invalid repo URL: %w", err)
@@ -26,7 +26,7 @@ func (r *GitHubActionTriggerRepositoryImpl) TriggerWorkflow(repoUrl, token, work
 	fmt.Printf("🔗 GitHub API URL: %s\n", apiURL)
 
 	payload := map[string]interface{}{
-		"ref": "main",
+		"ref": ref,
 		"inputs": map[string]string{
 			"triggered_by": "Go Trigger",
 		},

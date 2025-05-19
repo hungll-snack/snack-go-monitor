@@ -1,7 +1,7 @@
 package service
 
 import (
-	"first/github_action_trigger/repository"
+	"snack/github_action_trigger/repository"
 	"strings"
 )
 

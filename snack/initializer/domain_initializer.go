@@ -1,9 +1,9 @@
 package initializer
 
 import (
-	"first/post/entity" // entity 패키지 import
-	"first/post/repository"
-	"first/post/service"
+	"snack/post/entity" // entity 패키지 import
+	"snack/post/repository"
+	"snack/post/service"
 
 	"github.com/google/wire"
 	"github.com/joho/godotenv"
@@ -11,12 +11,12 @@ import (
 	"gorm.io/gorm"
 
 	// alias
-	githubActionEntity "first/github_action/entity"
-	githubActionRepo "first/github_action/repository"
-	githubActionService "first/github_action/service"
+	githubActionEntity "snack/github_action/entity"
+	githubActionRepo "snack/github_action/repository"
+	githubActionService "snack/github_action/service"
 
-	githubActionTriggerRepo "first/github_action_trigger/repository"
-	githubActionTriggerService "first/github_action_trigger/service"
+	githubActionTriggerRepo "snack/github_action_trigger/repository"
+	githubActionTriggerService "snack/github_action_trigger/service"
 
 	"fmt"
 	"os"

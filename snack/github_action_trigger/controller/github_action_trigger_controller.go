@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"first/github_action_trigger/controller/request_form"
-	"first/github_action_trigger/service"
+	"snack/github_action_trigger/controller/request_form"
+	"snack/github_action_trigger/service"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 )
@@ -46,4 +46,3 @@ func (c *GitHubActionTriggerController) TriggerWorkflow(ctx *fiber.Ctx) error {
 	fmt.Println("🎉 controller - 워크플로우 트리거 성공")
 	return ctx.JSON(fiber.Map{"success": true})
 }
-

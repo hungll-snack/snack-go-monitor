@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"first/github_action_trigger/controller"
+	"snack/github_action_trigger/controller"
 
 	"github.com/gofiber/fiber/v2"
 )
